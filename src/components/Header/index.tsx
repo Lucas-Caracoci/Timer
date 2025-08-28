@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { HeaderButtons, HeaderContainer } from "./style";
 
 import { TimerIcon ,ScrollIcon } from "@phosphor-icons/react";
@@ -7,12 +8,12 @@ export default function Header() {
     <HeaderContainer>
       <img src="/src/assets/Logo.svg" alt="logo da aplicação" />
       <HeaderButtons>
-        <a href="">
+        <NavLink to='/' title="Timer">
           <TimerIcon  size={24} />
-        </a>
-        <a href="">
+        </NavLink>
+        <NavLink to='/history' title="Histórico">
          <ScrollIcon  size={24} />
-        </a>
+        </NavLink>
       </HeaderButtons>
     </HeaderContainer>
   );

@@ -4,7 +4,7 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 4rem;
+    
     
 `;
 
@@ -15,17 +15,22 @@ export const HeaderButtons = styled.div`
         display: flex;
         align-items: center;
         
-        
-        color: ${props => props.theme['gray-100']};
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
 
-        border: none;
+        color: ${props => props.theme['gray-100']};
         cursor: pointer;
         padding: 0.5rem;
-        border-radius: 8px;
-        &:hover {
+        
+        &.active {
+            color: ${props => props.theme['green-300']}
+            
+        }
+    }
+    a:hover {
             background-color: ${props => props.theme['gray-600']};
             transition: background-color 0.2s;
             color: ${props => props.theme['green-300']};
+            border-bottom: 3px solid ${props => props.theme['green-300']};
         }
-    }
 `;
