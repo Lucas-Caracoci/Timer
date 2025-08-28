@@ -1,7 +1,19 @@
+import { HeaderButtons, HeaderContainer } from "./style";
+
+import { TimerIcon ,ScrollIcon } from "@phosphor-icons/react";
+
 export default function Header() {
   return (
-    <header>
-      <h1>Welcome to My Website</h1>
-    </header>
+    <HeaderContainer>
+      <img src="/src/assets/Logo.svg" alt="logo da aplicação" />
+      <HeaderButtons>
+        <a href="">
+          <TimerIcon  size={24} />
+        </a>
+        <a href="">
+         <ScrollIcon  size={24} />
+        </a>
+      </HeaderButtons>
+    </HeaderContainer>
   );
 }
