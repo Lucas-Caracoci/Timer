@@ -11,7 +11,11 @@ export const HeaderContainer = styled.div`
 export const HeaderButtons = styled.div`
     display: flex;
     gap: 0.5rem;
+    
     a {
+        transition: all 0.2s;
+        
+        box-shadow: none;
         display: flex;
         align-items: center;
         
