@@ -1,16 +1,55 @@
-import { PlayIcon } from "@phosphor-icons/react";
-import { CountdownContainer, FormContainer, HomeContainer, Separator } from "./style";
+import { useState } from 'react'
+
+import { Play } from 'phosphor-react'
+
+import {
+  CountdownContainer,
+  FormContainer,
+  HomeContainer,
+  MinutesAmountInput,
+  Separator,
+  StartCountdownButton,
+  TaskInput,
+} from './style'
 
 
 export function Home() {
-  return (
+const [task, setTask] = useState('')
+
+
+
+return (
     <HomeContainer>
-      <form action="">
+      <form>
         <FormContainer>
-          <label htmlFor="task">Vou trabalhar em : </label>
-          <input type="text" id="task" placeholder="Nome da Tarefa" />
+          <label htmlFor="task">Vou trabalhar em</label>
+          <TaskInput 
+          id="task" 
+          list='task-suggestions' 
+          placeholder="Dê um nome para o seu projeto" 
+          onChange={(e) => setTask(e.target.value)}
+          value={task}
+          />
+
+          <datalist id='task-suggestions'>
+            <option value="Estudar" />
+            <option value="Descansar" />
+            <option value="Treinar" />
+            <option value="Jogar" />
+          </datalist>
+
+
+
           <label htmlFor="minutesAmount">durante</label>
-          <input type="number" id="minutesAmount" placeholder="Tempo desejado"/>
+                        
+          <MinutesAmountInput
+            type="number"
+            id="minutesAmount"
+            placeholder="00"
+            step={5}
+            min={0}
+          />
+
           <span>minutos.</span>
         </FormContainer>
 
@@ -21,8 +60,14 @@ export function Home() {
           <span>0</span>
           <span>0</span>
         </CountdownContainer>
-        <button type="submit"><PlayIcon size={24}/> Começar</button>
+
+        
+        <StartCountdownButton disabled type="submit">
+          <Play size={24} />
+          Começar
+        
+        </StartCountdownButton>
       </form>
-    </HomeContainer >
-  );
+    </HomeContainer>
+  )
 }
